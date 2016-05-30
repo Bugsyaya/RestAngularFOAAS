@@ -10,12 +10,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     // Resolve est utilisé pour detecter le changement de position dans larborescence
     $stateProvider
       .state('birth', {
-        url: '/birth',    
+        url: '/birth',
         controller: 'myCtrl',
         resolve: {
             myApp: ['service',
                 function(service) {
-                    return service.getBirth();
+                    return service.getMessage('Birth');
                 }
             ],
             appli: function() { return {}; }
@@ -29,8 +29,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             myApp: ['service',
                 function(service) {
 
-                return service.getChildhood();
-                
+                return service.getMessage('Childhood');
+
             }],
             appli: function() { return {}; }
         },
@@ -43,8 +43,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             myApp: ['service',
                 function(service) {
 
-                return service.getStudy();
-                
+                return service.getMessage('Study');
+
             }],
             appli: function() { return {}; }
         },
@@ -57,8 +57,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             myApp: ['service',
                 function(service) {
 
-                return service.getPhd();
-                
+                return service.getMessage('Phd');
+
             }],
             appli: function() { return {}; }
         },
@@ -71,8 +71,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             myApp: ['service',
                 function(service) {
 
-                return service.getCareer();
-                
+                return service.getMessage('Career');
+
             }],
             appli: function() { return {}; }
         },
@@ -100,7 +100,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     function addWorkingLife($stateProvider, parent){
 
-      
+
       $stateProvider.state(`${parent}.workinglife`, {
         url: '/worklife',
         controller: 'myCtrl',
@@ -108,8 +108,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             myApp: ['service',
                 function(service) {
 
-                return service.getWorkingLife();
-                
+                return service.getMessage('WorkingLife');
+
             }],
             appli: function() { return {}; }
         },
@@ -122,8 +122,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             myApp: ['service',
                 function(service) {
 
-                return service.getPension();
-                
+                return service.getMessage('Pension');
+
             }],
             appli: function() { return {}; }
         },
@@ -136,8 +136,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             myApp: ['service',
                 function(service) {
 
-                return service.getDeath();
-                
+                return service.getMessage('Death');
+
             }],
             appli: function() { return {}; }
         },
