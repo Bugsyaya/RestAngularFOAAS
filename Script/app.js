@@ -4,9 +4,6 @@ var app = angular.module("myApp", ['ui.router','restangular']);
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/birth');
 
-
-
-
     // Resolve est utilisé pour detecter le changement de position dans larborescence
     $stateProvider
       .state('birth', {
@@ -20,7 +17,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             ],
             appli: function() { return {}; }
         },
-        template: '<div>You are borned<br><button ui-sref="birth.childhood">childhood</button><div ui-view></div></div>'
+        template: '<div class="col-md-12">You are borned<br><button ui-sref="birth.childhood" class="col-md-12">childhood</button><div ui-view></div></div>'
       })
       .state('birth.childhood', {
         url: '/childhood',
@@ -34,7 +31,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }],
             appli: function() { return {}; }
         },
-        template: '<div>You are grown up<br><button ui-sref="birth.childhood.study">study</button><br><button ui-sref="birth.childhood.career">career</button><div ui-view></div></div>'
+        template: '<div class="col-md-12 study">You are grown up<br><button ui-sref="birth.childhood.study" class="col-md-6">study</button><button ui-sref="birth.childhood.career" class="col-md-6">career</button><div ui-view></div></div>'
       })
       .state('birth.childhood.study', {
         url: '/study',
@@ -48,7 +45,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }],
             appli: function() { return {}; }
         },
-        template: '<div>Really ?<br><button ui-sref=".phd">phd</button> <button ui-sref=".workinglife">workinglife</button><div ui-view></div></div>'
+        template: '<div class="col-md-12 study">Really ?<br><button ui-sref=".phd" class="col-md-6">phd</button> <button ui-sref=".workinglife" class="col-md-6">workinglife</button><div ui-view></div></div>'
       })
       .state('birth.childhood.study.phd', {
         url: '/phd',
@@ -62,7 +59,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }],
             appli: function() { return {}; }
         },
-        template: '<div>Great, What next ?<br><button ui-sref=".workinglife">workinglife</button><div ui-view></div></div>'
+        template: '<div class="col-md-12 study">Great, What next ?<br><button ui-sref=".workinglife" class="col-md-12">workinglife</button><div ui-view></div></div>'
       })
       .state('birth.childhood.career', {
         url: '/career',
@@ -76,27 +73,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }],
             appli: function() { return {}; }
         },
-        template: '<div>GoodLuck !<br><button ui-sref=".workinglife">workinglife</button><div ui-view></div></div>'
+        template: '<div class="col-md-12 study">GoodLuck !<br><button ui-sref=".workinglife" class="col-md-12">workinglife</button><div ui-view></div></div>'
       });
-
-
-
-
-
-
-
-
-
 
     addWorkingLife($stateProvider, 'birth.childhood.study');
     addWorkingLife($stateProvider, 'birth.childhood.study.phd');
     addWorkingLife($stateProvider, 'birth.childhood.career');
-
-
-
-
-
-
 
     function addWorkingLife($stateProvider, parent){
 
@@ -111,9 +93,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 return service.getMessage('WorkingLife');
 
             }],
+
             appli: function() { return {}; }
         },
-        template: '<div>Good old days<br><button ui-sref=".pension">pension</button><div ui-view></div></div>'
+        template: '<div class="col-md-12 study">Good old days<br><button ui-sref=".pension" class="col-md-12">pension</button><div ui-view></div></div>'
       })
       .state(`${parent}.workinglife.pension`, {
         url: '/pension',
@@ -127,7 +110,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }],
             appli: function() { return {}; }
         },
-        template: '<div>Good old days<br><button ui-sref=".death">death</button><div ui-view></div></div>'
+        template: '<div class="col-md-12 study">Good old days<br><button ui-sref=".death" class="col-md-12">death</button><div ui-view></div></div>'
       })
       .state(`${parent}.workinglife.pension.death`, {
         url: '/death',
@@ -141,7 +124,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }],
             appli: function() { return {}; }
         },
-        template: '<div>RIP<br><button ui-sref="birth">birth</button></div>'
+        template: '<div class="col-md-12 study">RIP<br><button ui-sref="birth" class="col-md-12">birth</button></div>'
       });
 
     }
