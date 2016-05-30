@@ -1,11 +1,17 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-</head>
-  <body ng-app="myApp">
-    <div ui-view>
-      NOTHING
+  <head>
+    <meta charset="utf-8">
+    <link href="Css/freelance/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="Css/freelance/css/freelance.css" rel="stylesheet" type="text/css">
+    <link href="Css/freelance/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+  </head>
+  
+  <body ng-app="myApp" class="row">
+    <div class="col-md-4 col-md-offset-3">
+      <div ui-view>
+        NOTHING
+      </div>
     </div>
     <div ng-controller="myCtrl">
       <h1 ng-model="serviceRest.message">{{serviceRest.message}}</h1>
@@ -16,8 +22,8 @@
     <script type="text/javascript" src="  https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.min.js"></script>
     
-    <script src="Controller/app.js"></script>
-    <script src="Controller/service.js"></script>
-    <script src="Controller/controller.js"></script>
+    <script src="Script/app.js"></script>
+    <script src="Script/service.js"></script>
+    <script src="Script/controller.js"></script>
   </body>
 </html>
